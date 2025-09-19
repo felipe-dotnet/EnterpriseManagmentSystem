@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="MediatR" Version="13.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EMS.Domain\EMS.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commond\Models\" />
+    <Folder Include="Commond\Mappings\" />
+    <Folder Include="Features\Customers\Commands\" />
+    <Folder Include="Features\Customers\DTOs\" />
+    <Folder Include="Features\Customers\Queries\" />
+    <Folder Include="Features\Employees\Commands\" />
+    <Folder Include="Features\Employees\DTOs\" />
+    <Folder Include="Features\Employees\Queries\" />
+    <Folder Include="Features\Orders\Commands\" />
+    <Folder Include="Features\Orders\DTOs\" />
+    <Folder Include="Features\Orders\Queries\" />
+    <Folder Include="Validators\" />
+  </ItemGroup>
+
+</Project>
