@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS.Domain", "EMS.Domain\EM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS.Application", "EMS.Application\EMS.Application.csproj", "{86455A03-03A6-4C63-9434-5BEFFC43E121}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMS.Infrastructure", "EMS.Infrastructure\EMS.Infrastructure.csproj", "{B1A8D14C-AA06-421C-B9E2-6301B4C0DA6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{86455A03-03A6-4C63-9434-5BEFFC43E121}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86455A03-03A6-4C63-9434-5BEFFC43E121}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86455A03-03A6-4C63-9434-5BEFFC43E121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A8D14C-AA06-421C-B9E2-6301B4C0DA6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A8D14C-AA06-421C-B9E2-6301B4C0DA6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A8D14C-AA06-421C-B9E2-6301B4C0DA6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A8D14C-AA06-421C-B9E2-6301B4C0DA6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
