@@ -3,7 +3,7 @@ using EMS.Application.Features.Employees.DTOs;
 using FluentValidation;
 
 namespace EMS.API.Validators;
-public class CreateEmployeeValidator: AbstractValidator<CreateEmployeeDto>
+public class CreateEmployeeValidator : AbstractValidator<CreateEmployeeDto>
 {
     public CreateEmployeeValidator()
     {
@@ -108,7 +108,7 @@ public class EmployeeQueryValidator : AbstractValidator<EmployeeQuery>
             .When(x => x.SalaryMin.HasValue && x.SalaryMax.HasValue);
 
         RuleFor(x => x.OrderDirection)
-            .Must(x => x.Equals("asc", StringComparison.CurrentCultureIgnoreCase) || x.Equals("desc", StringComparison.CurrentCultureIgnoreCase))
+            .Must(x => x == "asc" || x == "desc")
             .WithMessage("La dirección de ordenamiento debe ser 'asc' o 'desc'");
     }
 }

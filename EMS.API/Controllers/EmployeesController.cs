@@ -264,7 +264,7 @@ namespace EMS.API.Controllers
 
             if (!string.IsNullOrWhiteSpace(query.Department))
             {
-                filtered = filtered.Where(e => e.Department.Contains(query.Department, StringComparison.OrdinalIgnoreCase));
+                filtered = filtered.Where(e => e.Department==query.Department);
             }
 
             if (query.Status.HasValue)

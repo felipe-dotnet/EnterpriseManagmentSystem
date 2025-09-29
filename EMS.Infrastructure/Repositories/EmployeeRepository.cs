@@ -30,7 +30,7 @@ public class EmployeeRepository(ApplicationDbContext context) : BaseRepository<E
     public async Task<IReadOnlyList<Employee>> GetByDepartmentAsync(string department)
     {
         return await _dbSet
-            .Where(e => e.Department.Equals(department, StringComparison.CurrentCultureIgnoreCase))
+            .Where(e => e.Department==department)
             .OrderBy(e => e.LastName)
             .ThenBy(e => e.FirstName)
             .ToListAsync();
@@ -54,11 +54,11 @@ public class EmployeeRepository(ApplicationDbContext context) : BaseRepository<E
 
         return await _dbSet
             .Where(e =>
-                e.FirstName.Contains(term, StringComparison.CurrentCultureIgnoreCase) ||
-                e.LastName.Contains(term, StringComparison.CurrentCultureIgnoreCase) ||
-                e.Email.Contains(term, StringComparison.CurrentCultureIgnoreCase) ||
-                e.Position.Contains(term, StringComparison.CurrentCultureIgnoreCase) ||
-                e.Department.Contains(term, StringComparison.CurrentCultureIgnoreCase))
+                e.FirstName==term ||
+                e.LastName==term ||
+                e.Email==term ||
+                e.Position==term ||
+                e.Department==term)
             .OrderBy(e => e.LastName)
             .ThenBy(e => e.FirstName)
             .ToListAsync();
@@ -66,7 +66,7 @@ public class EmployeeRepository(ApplicationDbContext context) : BaseRepository<E
 
     public override async Task<Employee> AddAsync(Employee employee)
     {
-        var emailExists = await _dbSet.AnyAsync(e => e.Email.Equals(employee.Email, StringComparison.CurrentCultureIgnoreCase));
+        var emailExists = await _dbSet.AnyAsync(e => e.Email==employee.Email);
         if (emailExists)
             throw new InvalidOperationException($"An employee with the email '{employee.Email}' already exists.");
         employee.CreatedAt = DateTime.UtcNow;
@@ -77,7 +77,7 @@ public class EmployeeRepository(ApplicationDbContext context) : BaseRepository<E
     {
         // Validar email único (excluyendo el empleado actual)
         var emailExists = await _dbSet
-            .AnyAsync(e => e.Email.Equals(employee.Email, StringComparison.CurrentCultureIgnoreCase) && e.Id != employee.Id);
+            .AnyAsync(e => e.Email==employee.Email && e.Id != employee.Id);
 
         if (emailExists)
             throw new InvalidOperationException($"Ya existe otro empleado con el email: {employee.Email}");

@@ -18,7 +18,7 @@ public class CustomerRepository(ApplicationDbContext contex) : BaseRepository<Cu
     {
         return await _dbSet
             .Include(c => c.Orders)
-            .FirstOrDefaultAsync(c => c.Email.Equals(email, StringComparison.CurrentCultureIgnoreCase));
+            .FirstOrDefaultAsync(c => c.Email==email);
     }
 
     public async Task<IReadOnlyList<Customer>> SearchAsync(string searchTerm)
@@ -31,11 +31,11 @@ public class CustomerRepository(ApplicationDbContext contex) : BaseRepository<Cu
         return await _dbSet
             .Include(c => c.Orders)
             .Where(c =>
-                c.CompanyName.Contains(term, StringComparison.CurrentCultureIgnoreCase) ||
-                c.ContactName.Contains(term, StringComparison.CurrentCultureIgnoreCase) ||
-                c.Email.Contains(term, StringComparison.CurrentCultureIgnoreCase) ||
-                (c.City != null && c.City.Contains(term, StringComparison.CurrentCultureIgnoreCase)) ||
-                (c.Country != null && c.Country.Contains(term, StringComparison.CurrentCultureIgnoreCase)))
+                c.CompanyName==term ||
+                c.ContactName==term ||
+                c.Email==term ||
+                c.City != null && c.City==term ||
+                (c.Country != null && c.Country==term))
             .OrderBy(c => c.CompanyName)
             .ToListAsync();
     }
@@ -44,7 +44,7 @@ public class CustomerRepository(ApplicationDbContext contex) : BaseRepository<Cu
     public override async Task<Customer> AddAsync(Customer customer)
     {
         // Validar email único
-        var emailExists = await ExistsAsync(c => c.Email.Equals(customer.Email, StringComparison.CurrentCultureIgnoreCase));
+        var emailExists = await ExistsAsync(c => c.Email==customer.Email);
         if (emailExists)
             throw new InvalidOperationException($"Ya existe un cliente con el email: {customer.Email}");
 
@@ -56,7 +56,7 @@ public class CustomerRepository(ApplicationDbContext contex) : BaseRepository<Cu
     {
         // Validar email único (excluyendo el cliente actual)
         var emailExists = await _dbSet
-            .AnyAsync(c => c.Email.Equals(customer.Email, StringComparison.CurrentCultureIgnoreCase) && c.Id != customer.Id);
+            .AnyAsync(c => c.Email==customer.Email && c.Id != customer.Id);
 
         if (emailExists)
             throw new InvalidOperationException($"Ya existe otro cliente con el email: {customer.Email}");

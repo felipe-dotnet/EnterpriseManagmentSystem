@@ -1,0 +1,105 @@
+﻿@page "/"
+
+<PageTitle>Inicio - EMS</PageTitle>
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="display-4">👋 Bienvenido al Sistema EMS</h1>
+            <p class="lead">Enterprise Management System - Gestión empresarial profesional</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-primary">
+                <div class="card-body text-center">
+                    <span class="bi bi-people-fill" style="font-size: 3rem; color: #0d6efd;"></span>
+                    <h5 class="card-title mt-3">Empleados</h5>
+                    <p class="card-text">Gestiona tu equipo de trabajo</p>
+                    <a href="/employees" class="btn btn-primary">Ir a Empleados</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-success">
+                <div class="card-body text-center">
+                    <span class="bi bi-building" style="font-size: 3rem; color: #198754;"></span>
+                    <h5 class="card-title mt-3">Clientes</h5>
+                    <p class="card-text">Administra tus clientes</p>
+                    <a href="/customers" class="btn btn-success">Ir a Clientes</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-warning">
+                <div class="card-body text-center">
+                    <span class="bi bi-cart-fill" style="font-size: 3rem; color: #ffc107;"></span>
+                    <h5 class="card-title mt-3">Órdenes</h5>
+                    <p class="card-text">Control de pedidos</p>
+                    <a href="/orders" class="btn btn-warning">Ir a Órdenes</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-info">
+                <div class="card-body text-center">
+                    <span class="bi bi-bar-chart-fill" style="font-size: 3rem; color: #0dcaf0;"></span>
+                    <h5 class="card-title mt-3">Dashboard</h5>
+                    <p class="card-text">Métricas y reportes</p>
+                    <a href="/dashboard" class="btn btn-info">Ir a Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">🎯 Características del Sistema</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">✅ Gestión completa de empleados</li>
+                        <li class="list-group-item">✅ Administración de clientes</li>
+                        <li class="list-group-item">✅ Control de órdenes y ventas</li>
+                        <li class="list-group-item">✅ Dashboard con métricas en tiempo real</li>
+                        <li class="list-group-item">✅ Reportes y exportaciones</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">🚀 Tecnologías Utilizadas</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Backend:</strong> ASP.NET Core Web API</li>
+                        <li class="list-group-item"><strong>Frontend:</strong> Blazor Server</li>
+                        <li class="list-group-item"><strong>Base de Datos:</strong> SQL Server</li>
+                        <li class="list-group-item"><strong>Arquitectura:</strong> Clean Architecture</li>
+                        <li class="list-group-item"><strong>Patrones:</strong> Repository, CQRS, DI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+</style>
