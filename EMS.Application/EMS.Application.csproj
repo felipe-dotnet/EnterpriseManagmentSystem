@@ -16,15 +16,4 @@
     <ProjectReference Include="..\EMS.Domain\EMS.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commond\Models\" />
-    <Folder Include="Features\Customers\Commands\" />
-    <Folder Include="Features\Customers\Queries\" />
-    <Folder Include="Features\Employees\Commands\" />
-    <Folder Include="Features\Employees\Queries\" />
-    <Folder Include="Features\Orders\Commands\" />
-    <Folder Include="Features\Orders\Queries\" />
-    <Folder Include="Validators\" />
-  </ItemGroup>
-
 </Project>
